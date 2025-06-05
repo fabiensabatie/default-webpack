@@ -3,9 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
-  mode: 'development',
-  entry: './index.tsx',
-  devtool: 'inline-source-map',
+  mode: 'production',
+  entry: './src/index.tsx',
+  devtool: 'source-map',
   devServer: {
     port: 3001,
     open: true,
@@ -35,14 +35,25 @@ module.exports = {
       name: 'threescene',
       filename: 'remoteEntry.js',
       exposes: {
-        './Block': './App',
+        './Block': './src/App',
       },
-      shared: false
+      // CRITICAL: Empty object = no shared dependencies, full isolation
+      shared: {},
     }),
   ],
+  externals: {},
+  optimization: {
+    splitChunks: false,
+    concatenateModules: true,
+  },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    library: {
+      type: 'var',
+      name: 'threescene'
+    },
+    publicPath: 'auto',
   },
-}; 
+};
