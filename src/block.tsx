@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default Block() {
+export default function Block() {
   return (<div>Hello, world!</div>)
 }
