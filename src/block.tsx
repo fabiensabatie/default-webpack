@@ -52,7 +52,6 @@ const Block: React.FC<BlockProps> = ({
     minHeight: '100vh',
     backgroundColor,
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    padding: '20px',
     position: 'relative',
     overflow: 'hidden'
   };
