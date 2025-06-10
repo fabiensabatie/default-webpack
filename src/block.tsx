@@ -9,7 +9,7 @@ interface BlockProps {
 }
 
 const Block: React.FC<BlockProps> = ({ 
-  message = "AI is doing its magic",
+  message = "Mexty is doing its magic",
   robotColor = "#4A90E2",
   backgroundColor = "#1a1a2e",
   textColor = "#ffffff",
